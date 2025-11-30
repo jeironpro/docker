@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  backend:
+    image: mi_imagen
+    build: .
+    ports:
+      - "5000:5000"
+    networks:
+      - mi_red
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: 1234
+    networks:
+      - mi_red
+
+networks:
+  mi_red:
